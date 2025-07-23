@@ -28,11 +28,10 @@ logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %
 log.setLevel(logging.DEBUG)
 
 # API Extractor configurations
-# API Extractor configurations
-KTP_API_URL = "<https://lynk.id/classyid/>"  # Ganti dengan ID_DEPLOYMENT yang sesuai
-KK_API_URL = "<https://lynk.id/classyid/>"  # Ganti dengan ID_DEPLOYMENT yang sesuai
-IJAZAH_API_URL = "<https://lynk.id/classyid/>"  # Ganti dengan ID_DEPLOYMENT yang sesuai
-SIM_API_URL = "<https://lynk.id/classyid/>"  # Ganti dengan ID_DEPLOYMENT yang sesuai
+KTP_API_URL = "https://github.com/classyid/ktp-extraction-api"  # Ganti dengan ID_DEPLOYMENT yang sesuai
+KK_API_URL = "https://github.com/classyid/kk-extractor-api"  # Ganti dengan ID_DEPLOYMENT yang sesuai
+IJAZAH_API_URL = "https://github.com/classyid/ijazah-extractor-api"  # Ganti dengan ID_DEPLOYMENT yang sesuai
+SIM_API_URL = "https://github.com/classyid/sim-extractor-api"  # Ganti dengan ID_DEPLOYMENT yang sesuai
 
 
 # Setup client
