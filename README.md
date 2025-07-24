@@ -22,13 +22,6 @@ Bot WhatsApp pintar yang dapat mengekstrak data dari dokumen resmi Indonesia sec
 
 ## 🚀 Quick Start
 
-### Prerequisites
-
-```bash
-# Python 3.7+
-pip install asyncio aiohttp requests neonize thundra_io
-```
-
 ### Installation
 
 1. **Clone Repository**
@@ -39,7 +32,7 @@ cd whatsapp-indonesia-doc-extractor
 
 2. **Install Dependencies**
 ```bash
-pip install -r requirements.txt
+pip install asyncio aiohttp requests neonize thundra_io
 ```
 
 3. **Setup Google Apps Script APIs**
