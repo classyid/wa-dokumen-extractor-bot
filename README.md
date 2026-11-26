@@ -1,4 +1,4 @@
-# 🤖 WhatsApp Indonesia Document Extractor Bot
+readme = """# 🤖 WhatsApp Indonesia Document Extractor Bot
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.7+-blue.svg" alt="Python Version">
@@ -13,7 +13,7 @@ Bot WhatsApp pintar yang dapat mengekstrak data dari dokumen resmi Indonesia sec
 
 - 🆔 **Ekstraksi KTP**: NIK, nama, alamat, dll
 - 👨‍👩‍👧‍👦 **Ekstraksi Kartu Keluarga**: Data lengkap anggota keluarga
-- 🎓 **Ekstraksi Ijazah**: Informasi pendidikan dan institusi  
+- 🎓 **Ekstraksi Ijazah**: Informasi pendidikan dan institusi
 - 🚗 **Ekstraksi SIM**: Data pengemudi dan kendaraan
 - 📄 **Export Files**: Hasil dalam format TXT dan JSON
 - 🎨 **Rich Formatting**: Output cantik dengan emoji
@@ -22,40 +22,70 @@ Bot WhatsApp pintar yang dapat mengekstrak data dari dokumen resmi Indonesia sec
 
 ## 🚀 Quick Start
 
+### Prerequisites
+
+- Python 3.10+ recommended (check compatibility with the versions of Neonize and other dependencies you install)
+- Git
+- WhatsApp account for pairing the bot
+- Google Apps Script deployments for the supported document types
+
 ### Installation
 
-1. **Clone Repository**
-```bash
-git clone https://github.com/classyid/wa-dokumen-extractor-bot.git
-cd whatsapp-indonesia-doc-extractor
-```
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/classyid/wa-dokumen-extractor-bot.git
+   cd wa-dokumen-extractor-bot
+   ```
 
-2. **Install Dependencies**
-```bash
-pip install asyncio aiohttp requests neonize thundra_io
-```
+2. **Create and activate a virtual environment**
 
-3. **Setup Google Apps Script APIs**
-- Deploy Google Apps Script untuk setiap jenis dokumen
-- Update URL API di script:
-```python
-KTP_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
-KK_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
-IJAZAH_API_URL = "YOUR_GAS_DEPLOYMENT_URL" 
-SIM_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
-```
+   Windows:
+   ```bash
+   py -m venv .venv
+   .venv\\Scripts\\activate
+   ```
 
-4. **Run Bot**
-```bash
-python main.py
-```
+   macOS/Linux:
+   ```bash
+   python3 -m venv .venv
+   source .venv/bin/activate
+   ```
+
+3. **Install dependencies**
+   ```bash
+   python -m pip install --upgrade pip
+   python -m pip install asyncio aiohttp requests neonize thundra_io
+   ```
+
+4. **Configure Google Apps Script APIs**
+
+   Deploy Google Apps Script for each supported document type and update the API URLs in the project:
+   ```python
+   KTP_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
+   KK_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
+   IJAZAH_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
+   SIM_API_URL = "YOUR_GAS_DEPLOYMENT_URL"
+   ```
+
+   Replace each placeholder with the corresponding deployment URL. Do not commit real credentials, private deployment tokens, or personal document data.
+
+5. **Run the bot**
+   ```bash
+   python main.py
+   ```
+
+### Troubleshooting installation
+
+- If `cd` fails, make sure you enter the directory created by the clone command: `wa-dokumen-extractor-bot`.
+- If installation fails, check your Python version and the dependency's compatibility requirements.
+- Run commands from the activated virtual environment to avoid installing packages into a different Python environment.
 
 ## 📱 Cara Penggunaan
 
 ### Commands Available
 
 | Command | Fungsi | Contoh |
-|---------|--------|---------|
+|---------|--------|--------|
 | `ping` | Cek status bot | `ping` |
 | `ktp` | Ekstrak data KTP | Reply gambar KTP dengan `ktp` |
 | `kk` | Ekstrak data KK | Reply gambar KK dengan `kk` |
@@ -65,11 +95,11 @@ python main.py
 
 ### Step by Step
 
-1. **Kirim gambar dokumen** ke chat WhatsApp
-2. **Reply gambar** dengan command yang sesuai (`ktp`, `kk`, `ijazah`, atau `sim`)
-3. **Tunggu proses ekstraksi** (biasanya 5-10 detik)
-4. **Terima hasil** dalam format yang rapi dengan emoji
-5. **Optional**: Minta file export dengan `.txt` atau `.json`
+1. Kirim gambar dokumen ke chat WhatsApp.
+2. Reply gambar dengan command yang sesuai (`ktp`, `kk`, `ijazah`, atau `sim`).
+3. Tunggu proses ekstraksi.
+4. Terima hasil dalam format yang rapi.
+5. Optional: minta file export dengan `.txt` atau `.json`.
 
 ### Contoh Output KTP
 
@@ -100,7 +130,7 @@ WhatsApp Message → Bot Detection → Media Download → OCR Processing → Dat
 
 ### Tech Stack
 
-- **Backend**: Python 3.7+ dengan asyncio
+- **Backend**: Python dengan asyncio
 - **WhatsApp API**: Neonize framework
 - **OCR Engine**: Google Apps Script
 - **Database**: SQLite untuk session management
@@ -119,25 +149,17 @@ DB_PATH=db.sqlite3
 
 ### Custom API Endpoints
 
-Anda dapat mengganti Google Apps Script dengan OCR service lain:
-
-```python
-# Ubah fungsi query_*_extractor sesuai API yang digunakan
-async def query_ktp_extractor(media_bytes, mime_type, file_name):
-    # Custom OCR implementation
-    pass
-```
+Anda dapat mengganti Google Apps Script dengan OCR service lain dengan menyesuaikan fungsi `query_*_extractor` di source code.
 
 ## 🤝 Contributing
 
 Kontribusi sangat welcome! Silakan:
 
-1. Fork repository ini
-2. Buat feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push ke branch (`git push origin feature/AmazingFeature`)
-5. Buka Pull Request
-
+1. Fork repository ini.
+2. Buat feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit perubahan (`git commit -m 'Add some AmazingFeature'`).
+4. Push ke branch fork Anda (`git push origin feature/AmazingFeature`).
+5. Buka Pull Request.
 
 ## 📜 License
 
@@ -145,11 +167,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## ⚠️ Disclaimer
 
-- Bot ini untuk keperluan legal dan sah
-- Penyalahgunaan data pribadi dapat dikenakan sanksi hukum
-- Pastikan compliance dengan regulasi perlindungan data
+- Bot ini untuk keperluan legal dan sah.
+- Penyalahgunaan data pribadi dapat dikenakan sanksi hukum.
+- Pastikan compliance dengan regulasi perlindungan data.
 
 ## 🆘 Support
+
 - 📧 **Email**: kontak@classy.id
 
 ## 🙏 Acknowledgments
@@ -168,3 +191,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <p align="center">
   <a href="#top">Back to top ⬆️</a>
 </p>
+"""
+path = "/mnt/data/README_contribution.md"
+with open(path, "w", encoding="utf-8") as f:
+    f.write(readme)
+print(path)
